@@ -1,0 +1,1413 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------   General Styles NAV START -------------------------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #ffffff; /* خلفية فاتحة */
+}
+
+
+/* إضافة اللون للأيقونات */
+nav a i {
+    color: #daa520;
+    margin-right: 8px; /* مسافة صغيرة بين الأيقونة والنص */
+}
+
+/* تنسيق إضافي لتحسين شكل الروابط */
+nav a {
+    color: #fff; /* لون النص */
+    text-decoration: none; /* إزالة التسطير */
+    padding: 10px 15px;
+    display: inline-flex; /* يجعل النص والأيقونة بمحاذاة واحدة */
+    align-items: center;
+    transition: color 0.3s ease, background 0.3s ease; /* تأثير عند التمرير */
+}
+
+nav a:hover {
+    background-color: #daa520; /* خلفية عند التمرير */
+    color: #222; /* تغيير لون النص عند التمرير */
+    border-radius: 8px; /* حواف مستديرة */
+}
+
+nav a i:hover {
+    color: #fff; /* تغيير لون الأيقونة عند التمرير */
+}
+
+
+
+
+
+/* Navbar Styles */
+header {
+    width: 100%;
+    padding: 0 20px; /* إضافة padding على الجانبين */
+    height: 60px; /* ارتفاع navbar */
+    display: flex;
+    justify-content: center; /* توسيط المحتويات أفقياً */
+    align-items: center; /* توسيط المحتويات عمودياً */
+    position: fixed; /* جعلها ثابتة عند التمرير */
+    top: 0; /* إبقائها في الأعلى */
+    left: 0; /* تأمينها على يسار الصفحة */
+    background-color: rgba(34, 34, 34, 0.8); /* خلفية أكثر شفافية */
+    z-index: 1000; /* فوق بقية العناصر */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+    border-radius: 0; /* إزالة الحواف المدورة */
+}
+
+/* Navbar links */
+header nav {
+    display: flex;
+    justify-content: center; /* توسيط الروابط أفقياً */
+    align-items: center; /* توسيط الروابط عمودياً */
+    width: 100%; /* اجعل nav يأخذ العرض الكامل */
+    max-width: 1200px; /* تعيين الحد الأقصى للعرض */
+}
+
+header nav a {
+    color: #fff;
+    margin-right: 20px; /* زيادة المسافة بين الروابط */
+    padding: 10px 15px;
+    font-size: 16px;
+    text-transform: uppercase; /* تحويل النصوص إلى حروف كبيرة */
+    transition: 0.3s ease; /* إضافة تأثير عند التمرير */
+    text-decoration: none;
+    border-radius: 10px; /* جعل الحواف مدورة لكل رابط */
+}
+
+header nav a:last-child {
+    margin-right: 0; /* إزالة المسافة بعد الرابط الأخير */
+}
+
+header nav a.active {
+    background: #daa520;
+    color: #222;
+    border-radius: 10px; /* جعل الحواف مدورة */
+    font-weight: bold; /* جعل النص بالخط العريض للعنصر النشط */
+}
+
+header nav a:hover {
+    background: #daa520;
+    color: #222;
+    border-radius: 10px; /* جعل الحواف مدورة عند التمرير */
+    transform: scale(1.1); /* تأثير تكبير طفيف عند التمرير */
+}
+
+/* تأثير التركيز على الرابط */
+header nav a:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(20, 255, 114, 0.6); /* تأثير عند التركيز */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 0 10px;
+    }
+    header nav {
+        flex-direction: column; /* الروابط بشكل عمودي */
+        align-items: center; /* توسيط الروابط في الشاشات الصغيرة */
+    }
+    header nav a {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+}
+
+
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown button styling */
+.dropdown-btn {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease, background 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect for dropdown button */
+.dropdown-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #daa520;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.dropdown-btn:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(34, 34, 34, 0.95);
+    min-width: 250px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 10px;
+    margin-top: 10px;
+    animation: fadeIn 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Icon styling for dropdown links */
+.dropdown-content a i {
+    color: #daa520;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.dropdown-content a:hover i {
+    color: #fff;
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #daa520;
+    color: #222;
+    transform: translateX(10px); /* Slight slide effect */
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Animation for dropdown content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adjust spacing and layout for dropdown */
+.dropdown-content a:first-child {
+    margin-top: 10px;
+}
+
+.dropdown-content a:last-child {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav a,
+    .dropdown-btn {
+        width: 100%;
+        text-align: left;
+    }
+
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+}
+
+
+
+/*---------------------------------------------------------------------------  NAV END ----------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* -------------------------------------------------------------   Footer Styles START  -------------------------------------------------------------------------------------------------*/
+.footer {
+    background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
+    color: #fff;
+    padding: 50px 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+ /* الانيميشن يخلي العماصر الي داخل اافوتر يتحرك عند تحميل الصفحه */
+.footer .container {
+    animation: waterfall 2s ease-in-out forwards;
+}
+
+@keyframes waterfall {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* /////////////////////////////////////////////////////////////// */
+
+/* يخلي الفوتر بكبره يتحرك في بدايه الصفحه */
+.footer {
+    position: relative;
+    bottom: -50px;
+    animation: slideInUp 1s ease-out forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        bottom: -50px;
+        opacity: 0;
+    }
+    to {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+.footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+
+/* اللمعه فوق الي تلمع لما تحوم فوق العنوان */
+/* تأثير الإضاءة المتحركة على العناوين h3 فقط */
+.footer h3 {
+    font-size: 22px;
+    color: #daa520;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease;
+    display: inline-block; /* تعديل لتجنب ظهور المستطيل */
+}
+
+/* تأثير اللمعة عند مرور الماوس على h3 */
+.footer h3:hover {
+    color: #daa520; /* اللون الذهبي */
+    animation: glowEffect 1s ease-out infinite alternate; /* إضافة الأنيميشن على h3 */
+}
+
+/* الأنيميشن الخاصة باللمعة */
+@keyframes glowEffect {
+    0% {
+        text-shadow: 0 0 5px rgba(218, 165, 32, 0.7), 0 0 15px rgba(218, 165, 32, 0.6), 0 0 20px rgba(218, 165, 32, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(218, 165, 32, 1), 0 0 30px rgba(218, 165, 32, 0.9), 0 0 40px rgba(218, 165, 32, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(218, 165, 32, 0.7), 0 0 15px rgba(218, 165, 32, 0.6), 0 0 20px rgba(218, 165, 32, 0.5);
+    }
+}
+
+.footer h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #daa520;
+    margin: 10px auto;
+} 
+
+
+/* الفقرة في الفوتر */
+.footer p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* إضافة تأثير الأنيميشن عند الحوم فوق الفقرة */
+.footer p:hover {
+    color: #daa520; /* تغيير اللون إلى الذهبي */
+    transform: scale(1.1); /* تكبير الفقرة بشكل خفيف */
+    animation: glowEffect 1s ease-out infinite alternate; /* إضافة الأنيميشن على اللمعة */
+}
+
+/* أنيميشن تأثير اللمعة */
+@keyframes glowEffect {
+    0% {
+        text-shadow: 0 0 5px rgba(218, 165, 32, 0.7), 0 0 15px rgba(218, 165, 32, 0.6), 0 0 20px rgba(218, 165, 32, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(218, 165, 32, 1), 0 0 25px rgba(218, 165, 32, 0.8), 0 0 35px rgba(218, 165, 32, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(218, 165, 32, 0.7), 0 0 15px rgba(218, 165, 32, 0.6), 0 0 20px rgba(218, 165, 32, 0.5);
+    }
+}
+
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin: 10px 0;
+}
+
+
+.footer ul li a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 14px;
+    transition: text-shadow 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: #daa520;
+    text-shadow: 0 0 10px #daa520, 0 0 20px #daa520;
+}
+
+
+
+.footer-section.social .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-section.social .social-icons a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-section.social .social-icons a:hover {
+    color: #daa520;
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* ----------------------------------------------------   FOOTER  END -------------------------------------------------------------------------- */
+
+
+
+
+
+
+/*** -----------------------------------------------  Testimonial START -----------------------------------------------------------------------------***/
+/* Styling for the Testimonial Section */
+
+.testimonial-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #ffffff;
+}
+
+.testimonial-section h2 {
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: transparent;
+    letter-spacing: 4px;
+    background-color: rgb(4, 52, 83);
+    background: #daa520;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    margin-bottom: 30px; /* المسافة أسفل العنوان */
+}
+
+.testimonial-section h2:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 35%; /* بداية الخط */
+    height: 8px;
+    width: 30%; /* عرض الخط */
+    border-radius: 52px;
+    background-color: rgb(52 43 43 / 5%);
+}
+
+.testimonial-section h2 span {
+    position: absolute;
+    top: 100%;
+    left: 35%; /* بداية الكرة تتماشى مع بداية الخط */
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    animation: anim 4s linear infinite; /* تقليل سرعة الحركة بتغيير الزمن */
+}
+
+@keyframes anim {
+    0% {
+        left: 35%; /* بداية الكرة عند بداية الخط */
+    }
+
+    100% {
+        left: 65%; /* نهاية الكرة عند نهاية الخط */
+    }
+}
+
+
+
+
+/* Styling for Cards */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Enlarge the card when hovered */
+}
+
+.card-img {
+    width: 120px;  /* التحكم في عرض الصورة */
+    height: 120px; /* التحكم في ارتفاع الصورة */
+    margin: 0 auto 15px; /* تراكب الصورة في المنتصف */
+    border-radius: 50%; /* جعل الصورة دائرية */
+    overflow: hidden; /* التأكد من عدم خروج الصورة عن الشكل */
+}
+
+.card-img img {
+    width: 100%; /* جعل الصورة تأخذ العرض الكامل للصورة */
+    height: 100%; /* التأكد من تغطية الصورة بالكامل */
+    object-fit: cover; /* استخدام الـ object-fit لتغطية المساحة بشكل جيد */
+}
+
+.card-body h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-body p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Owl Carousel styling */
+.owl-carousel .owl-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.owl-nav {
+    display: none;
+}
+
+
+
+/* إعدادات البطاقة الأساسية */
+.card {
+    background-color: #fff; /* خلفية بيضاء */
+    border-radius: 30px; /* حواف دائرية */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 1 8px 12px rgba(227, 33, 33, 0.3); /* الظل الأسود خلف البطاقة */
+    transition: all 0.3s ease-in-out; /* تأثير عند التمرير */
+    cursor: pointer;
+}
+
+/* تأثير البطاقة عند التمرير */
+.card:hover {
+    transform: scale(1.05); /* تكبير البطاقة عند التمرير */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* زيادة الظل عند التمرير */
+    background-color: gold; /* تغيير اللون إلى الذهبي عند التمرير */
+    color: white; /* تغيير لون النص إلى الأبيض ليتناسب مع الذهبي */
+}
+
+
+
+/* تكبير الصورة عند التمرير على البطاقة */
+.card:hover .card-img img {
+    transform: scale(1.1);
+}
+
+/* إعدادات النص داخل البطاقة */
+.card-body {
+    text-align: center;
+}
+
+.visitor-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.visitor-comment {
+    font-size: 1rem;
+    color: #555;
+}
+
+
+
+
+/* تاتير اسم الس عمل التعليق يصير اسمه مضيء وينط */
+.card:hover .visitor-name {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px gold, 0 0 30px rgb(0, 0, 0);
+}
+
+
+
+
+
+
+.card-body {
+    overflow: hidden;
+}
+.card:hover .visitor-name {
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+/* تأثير تموجات للنص أو الصور داخل البطاقة. */
+.card:hover .card-img img {
+    animation: waveEffect 1s ease-in-out;
+}
+
+@keyframes waveEffect {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+/***-------------------------------------------------- Testimonial END -----------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------   الزرين الي في الواجهه حق SINGUP AND LOGIN ----------------------- */
+/* تنسيق الأزرار */
+.btn {
+    display: flex;
+    justify-content: flex-start; /* محاذاة الأزرار إلى اليسار */
+    gap: 20px; /* المسافة بين الأزرار */
+    margin-top: 50px; /* المسافة من الأعلى */
+    padding-left: 5px; /* مسافة من اليسار */
+  }
+  
+  button {
+    background-color: #daa520; /* لون الزر */
+    border: 2px solid #daa520; /* تحديد الحواف */
+    border-radius: 8px; /* جعل الزوايا مستديرة */
+    padding: 10px 20px; /* حجم الزر */
+    font-size: 16px;
+    color: white; /* لون النص */
+    cursor: pointer;
+    transition: all 0.3s ease; /* تأثير التغيير عند التحويم */
+    text-align: center;
+  }
+  
+  button:hover {
+    background-color: white;
+    color: #daa520; /* تغير اللون عند التحويم */
+    transform: scale(1.1); /* تكبير الزر عند التحويم */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+  }
+  
+  button:active {
+    transform: scale(0.98); /* تأثير عندما يتم النقر على الزر */
+  }
+  
+  a {
+    text-decoration: none; /* إزالة الخط السفلي من الرابط */
+  }
+  
+/* ----------------------------------------------------------   الزرين الي في الواجهه حق SINGUP AND LOGIN ----------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------   BIG BANNER ONE START  ------------------------------------------------------- */
+
+
+.carousel{
+    width: 100vw;
+    height: 100vh;
+    margin-top: -50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .list .item{
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s;
+}
+
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2){
+    top: 14%;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .list .item:nth-child(3){
+    left: 67%;
+}
+
+.carousel .list .item:nth-child(4){
+    left: calc(67% + 200px);
+}
+
+.carousel .list .item:nth-child(5){
+    left: calc(67% + 400px);
+}
+
+.carousel .list .item:nth-child(6){
+    left: calc(67% + 600px);
+}
+
+.carousel .list .item:nth-child(n+7){
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+
+
+
+
+
+.list .item .content{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 400px;
+    text-align: left;
+    color: #fff;
+    display: none;
+}
+
+.list .item:nth-child(2) .content{
+    display: block;
+}
+
+
+.content .title {
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+
+    
+    /* استخدام التدرج الجديد كخلفية للنص */
+    background-image: linear-gradient(135deg, #daa520, #daa520);
+    
+    /* جعل التدرج يلتصق بالنص */
+    -webkit-background-clip: text;
+    color: transparent; /* نص شفاف لتمكين رؤية التدرج */
+
+    
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content .name {
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+
+    /* استخدام اللون الأصفر فقط */
+    color: #daa520; /* تعيين اللون الأصفر للنص */
+
+    /* إضافة تأثير الإضاءة */
+    text-shadow: 3px 4px 4px rgb(0, 0, 0);
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.content .des {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+
+    /* إضافة لون النص */
+    color: #daa520;;
+
+     /* إضافة تأثير الإضاءة */
+     text-shadow: 3px 4px 4px rgb(0, 0, 0);
+
+    /* تأثير شفاف للنص */
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+
+
+.content .btn{
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.2s 1 forwards;
+}
+
+.content .btn button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #fff;
+}
+
+.content .btn button:nth-child(1){
+    margin-right: 15px;
+}
+
+.content .btn button:nth-child(2){
+    background: transparent;
+    color: #daa520;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.content .btn button:nth-child(2):hover{
+    background-color: #14ff72cb;
+    color: #fff;
+    border-color: #14ff72cb;
+}
+
+
+@keyframes animate {
+    
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+
+
+
+
+
+/* Carousel */
+/* next prev arrows */
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #daa520;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.arrows button:hover{
+    background: #fff;
+    color: #000;
+}
+
+
+/* time running */
+.carousel .timeRunning{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: #14ff72cb;
+    left: 0;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
+}
+
+@keyframes runningTime {
+    
+    from{width: 0%;}
+    to{width: 100%;}
+
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 999px){
+    
+    header{
+        padding-left: 50px;
+    }
+
+    .list .item .content{
+        left: 50px;
+    }
+
+    .content .title, .content .name{
+        font-size: 70px;
+    }
+
+    .content .des{
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 690px){
+    header nav a{
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .list .item .content{
+        top: 40%;
+    }
+
+    .content .title, .content .name{
+        font-size: 45px;
+    }
+
+    .content .btn button{
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+
+/* ----------------------------------------------------------   BIG BANNER ONE END   ------------------------------------------------------- */
+
+
+
+
+
+
+
+
+/**********************************        START COUNTER NUMBER      ***********************/
+
+/* General Styles */
+/* body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #daa520;
+} */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.donation-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Card Styles for Donation Section */
+.donation-card {
+    background-color: #fffdfd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover Effects for Donation Cards */
+.donation-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 1 60px 60px rgba(255, 253, 253, 0.2);
+}
+
+/* Shining Light Effect */
+.donation-card::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgb(255, 255, 255), transparent);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.donation-card:hover::before {
+    opacity: 1;
+    animation: shine 2s linear infinite;
+}
+
+/* Animation Keyframes */
+@keyframes shine {
+    0% {
+        top: -150%;
+        left: -150%;
+    }
+    50% {
+        top: 50%;
+        left: 50%;
+    }
+    100% {
+        top: 150%;
+        left: 150%;
+    }
+}
+
+/* Card Content */
+.donation-card .icon {
+    font-size: 40px;
+    color: #daa520;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+.donation-card .content {
+    position: relative;
+    z-index: 1;
+}
+
+.donation-card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.donation-card .counter {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+
+
+/* Styling for the Header Section */
+/* Styling for the Header Section */
+.header11 {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 50px 0;
+    background-color: #ffffff; /* خلفية عامة */
+    position: relative; /* لإتاحة وضع العناصر الداخلية */
+}
+
+.header11 h1 {
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: transparent;
+    letter-spacing: 4px;
+    background: #daa520; /* اللون الجديد للنص */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.header11 h1:after {
+    content: "";
+    position: absolute;
+    top: 100%; /* الخط أسفل النص مباشرة */
+    left: 35%; /* بداية الخط */
+    height: 8px;
+    width: 30%; /* عرض الخط */
+    border-radius: 50px;
+    background-color: rgba(52, 43, 43, 0.05); /* لون الخط الخفيف */
+}
+
+.header11 span {
+    position: absolute;
+    top: 100%; /* الكرة تبدأ أسفل الخط مباشرة */
+    left: 35%; /* بداية الكرة عند بداية الخط */
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #000; /* لون الكرة */
+    animation: anim 4s linear infinite; /* الحركة المستمرة للكرة */
+}
+
+@keyframes anim {
+    0% {
+        left: 35%; /* بداية الكرة عند بداية الخط */
+    }
+
+    100% {
+        left: 65%; /* نهاية الكرة عند نهاية الخط */
+    }
+}
+
+
+/****************************************************** END COUNTER NUMBER *************************************************** */
+
+
+
+
+
+/* //////////////////////////////////////////////// Banner Information  STRAT ///////////////////////////////////////////////////////////// */
+
+
+/* General Styles */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.content1 {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+.content1.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.rotating-section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* This can remain 100vh to center the section vertically */
+    position: relative;
+    overflow: hidden;
+}
+/* Modify rotating-container for better sizing */
+.rotating-container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 90%; /* Increased width */
+    height: 80%; /* Set a height for better content visibility */
+    max-width: 1200px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 68px rgba(0, 0, 0, 0.2), 
+                0 15px 35px rgba(0, 0, 0, 0.15),
+                0 0 30px 10px rgba(74, 144, 226, 0.6), /* التدرج اللوني الظل */
+                0 0 40px 10px rgba(144, 78, 149, 0.4); /* الظل الآخر بتدرج لوني */
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Style for each content box */
+.content1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out; /* Reduce transition time */
+    transform: rotateY(90deg); /* Initial state with rotation */
+}
+
+.content1.active {
+    opacity: 1;
+    transform: rotateY(0deg); /* Final state with no rotation */
+}
+
+.image {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.image img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgb(0, 0, 0); /* ظلال سوداء محسنة */
+    animation: rotateContent 4s ease-in-out infinite;
+    transition: transform 0.3s ease-in-out; /* انتقال سلس لتأثير التكبير */
+}
+
+.image img:hover {
+    transform: scale(1.05); /* تكبير الصورة بنسبة 5% */
+}
+
+
+.text {
+    flex: 1;
+    padding: 20px;
+    animation: rotateContent 4s ease-in-out infinite;
+}
+.text p {
+    background: linear-gradient(135deg, #4a90e2, #904e95); /* Apply gradient background */
+    -webkit-background-clip: text; /* Make the gradient visible on the text */
+    background-clip: text; /* For non-webkit browsers */
+    color: transparent; /* Make the actual text color transparent to show the gradient */
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px); /* Start position for animation */
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+/* Add animation when the text becomes active */
+.content1.active .text p {
+    opacity: 1;
+    transform: translateY(0); /* Move to the normal position */
+}
+.read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #4a90e2, #904e95); /* إضافة التدرج اللوني */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s; /* استخدام transition للـ background */
+}
+
+.read-more:hover {
+    background: linear-gradient(135deg, #904e95, #4a90e2); /* عكس التدرج عند التمرير */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************** Styling for Aid and Latest News Section **************************************/
+.aid-news-section {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 50px 0;
+    background-color: #ffffff; /* خلفية عامة */
+    position: relative; /* لإتاحة وضع العناصر الداخلية */
+    margin-top: 50px;
+}
+
+.aid-news-section h2 {
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: transparent;
+    letter-spacing: 4px;
+    background: #daa520; /* اللون الجديد للنص */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    margin-bottom: -61px;
+}
+
+.aid-news-section h2:after {
+    content: "";
+    position: absolute;
+    top: 100%; /* الخط أسفل النص مباشرة */
+    left: 35%; /* بداية الخط */
+    height: 8px;
+    width: 30%; /* عرض الخط */
+    border-radius: 50px;
+    background-color: rgba(52, 43, 43, 0.05); /* لون الخط الخفيف */
+}
+
+.aid-news-section span {
+    position: absolute;
+    top: 100%; /* الكرة تبدأ أسفل الخط مباشرة */
+    left: 35%; /* بداية الكرة عند بداية الخط */
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #000; /* لون الكرة */
+    animation: anim 4s linear infinite; /* الحركة المستمرة للكرة */
+}
+
+@keyframes anim {
+    0% {
+        left: 35%; /* بداية الكرة عند بداية الخط */
+    }
+
+    100% {
+        left: 65%; /* نهاية الكرة عند نهاية الخط */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* //////////////////////////////////////////////// Banner Information END  ///////////////////////////////////////////////////////////// */
